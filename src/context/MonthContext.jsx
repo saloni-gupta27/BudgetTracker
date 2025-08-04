@@ -4,7 +4,7 @@ import { subMonths, addMonths, startOfMonth, endOfMonth } from "date-fns";
 export const MonthContext = createContext();
 
 export const MonthProvider = ({ children }) => {
-  const [period, setPeriod] = useState(new Date(2024, 0, 1));
+  const [period, setPeriod] = useState(new Date(2024, 9, 1));
   const [startDate, setStartDate] = useState(startOfMonth(period));
   const [endDate, setEndDate] = useState(endOfMonth(period));
 

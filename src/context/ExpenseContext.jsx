@@ -7,11 +7,13 @@ export const ExpenseContext = createContext();
 export const ExpenseProvider = ({ children }) => {
   const { startDate, endDate } = useMonth();
 
-  const monthlyData = data.filter(
-    (item) =>
-      new Date(item.date) > new Date(startDate) &&
-      new Date(item.date) < new Date(endDate)
-  );
+  const monthlyData = data
+    .filter(
+      (item) =>
+        new Date(item.date) > new Date(startDate) &&
+        new Date(item.date) < new Date(endDate)
+    )
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 
   let spentsArr = [];
   monthlyData.forEach((i) => spentsArr.push(i.amount));
